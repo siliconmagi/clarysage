@@ -5,7 +5,7 @@ const exec = require('child_process').execSync
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
-const OfflinePlugin = require('offline-plugin')
+// const OfflinePlugin = require('offline-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const base = require('./webpack.base')
 const pkg = require('../package')
@@ -49,13 +49,13 @@ base.plugins.push(
   }),
   // progressive web app
   // it uses the publicPath in webpack config
-  new OfflinePlugin({
-    relativePaths: false,
-    AppCache: false,
-    ServiceWorker: {
-      events: true
-    }
-  }),
+  // new OfflinePlugin({
+    // relativePaths: false,
+    // AppCache: false,
+    // ServiceWorker: {
+      // events: true
+    // }
+  // }),
   new CompressionPlugin({
     asset: '[path].gz[query]',
     algorithm: 'gzip',
