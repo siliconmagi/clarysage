@@ -1,26 +1,23 @@
+/* Third Party */
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import { sync } from 'vuex-router-sync'
-import App from './components/App'
-import router from './router'
-import store from './store'
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
 
-Vue.use(VueMaterial)
-Vue.material.registerTheme({
-  default: {
-      primary: 'green',
-      accent: 'red'
-    },
-  green: {
-      primary: 'green',
-      accent: 'pink'
-    },
-  orange: {
-      primary: 'orange',
-      accent: 'green'
-    },
-})
+/* Configs */
+import './config.js'
+import App from './App'
+import routes from './routes.js'
+import store from './store.js'
+
+import PageContent from './components/PageContent'
+
+Vue.use(VueRouter);
+
+let router = new VueRouter({
+  mode: 'hash',
+  base: window.location.pathname,
+  routes
+});
 
 sync(store, router)
 
